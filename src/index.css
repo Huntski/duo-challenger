@@ -8,4 +8,5 @@ body {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    background: linear-gradient(45deg, #25262A, #0E0F0F);
 }
