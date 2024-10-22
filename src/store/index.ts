@@ -15,6 +15,16 @@ export interface OtherUser {
   id: User['id']
   user_name: User['user_name']
   avatar: URL
+  rest_day: boolean
+  tasks_count: number
+  tasks_done: number
+}
+
+export interface Challenge {
+  id: number
+  user_id: string
+  start_date: Date
+  end_date: Date
 }
 
 export interface DailyTask {
@@ -56,26 +66,38 @@ export const useMainStore = defineStore({
         {
           id: 2,
           user_name: 'Weeb',
+          rest_day: false,
+          tasks_count: 10,
+          tasks_done: 10,
           avatar:
             'https://i.pinimg.com/736x/67/1d/8a/671d8a97e745f81fb1ec50d7fb339d3c.jpg',
         },
         {
           id: 3,
           user_name: 'Umi',
+          rest_day: false,
+          tasks_count: 10,
+          tasks_done: 5,
           avatar:
-            'https://i.pinimg.com/736x/67/1d/8a/671d8a97e745f81fb1ec50d7fb339d3c.jpg',
+            'https://cdn.discordapp.com/avatars/198226498270789651/0975638c7326ab5fba421963881f8815.webp?size=128',
         },
         {
           id: 4,
           user_name: 'Korey',
+          rest_day: true,
+          tasks_count: 10,
+          tasks_done: 5,
           avatar:
-            'https://i.pinimg.com/736x/67/1d/8a/671d8a97e745f81fb1ec50d7fb339d3c.jpg',
+            'https://cdn.discordapp.com/avatars/306931050460741632/4a63cf3ef9ee574871b7d7d430661e08.webp?size=80',
         },
         {
           id: 5,
-          user_name: 'Weeb',
+          user_name: 'Hex',
+          rest_day: false,
+          tasks_count: 10,
+          tasks_done: 5,
           avatar:
-            'https://i.pinimg.com/736x/67/1d/8a/671d8a97e745f81fb1ec50d7fb339d3c.jpg',
+            'https://cdn.discordapp.com/avatars/355553281357119490/a_45575b25e1931f98084161de20c775aa.webp?size=80',
         },
       ],
 
@@ -120,6 +142,14 @@ export const useMainStore = defineStore({
           content: 'Add user list.',
           is_done: false,
           tab_count: 1,
+        },
+        {
+          id: 6,
+          dailytask_id: 1,
+          order: 6,
+          content: 'Create edit page for Album Overview.',
+          is_done: false,
+          tab_count: 0,
         },
       ],
     } as RootState),

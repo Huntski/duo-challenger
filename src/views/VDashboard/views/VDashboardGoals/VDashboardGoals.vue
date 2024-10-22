@@ -16,7 +16,7 @@ function createNewTask() {
 
 function deleteTask(task_id: Task['id']) {
   store.deleteTask(task_id)
-}
+} 
 
 function handleKeyDownEvent(e: KeyboardEvent) {
   console.log('editingtask:', editingTask.value)
@@ -67,8 +67,8 @@ function taskStyling(tab_count: Task['tab_count']) {
 
           <CheckboxField v-model="task.is_done" />
 
-          <div class="transition-colors w-full">
-            <div class="grow-wrap grid relative" :data-replicated-value="task.content">
+          <div class="w-full">
+            <div class="grow-wrap grid relative transition-colors" :class="{ 'line-through text-[#B1B7CC]' : task.is_done}" :data-replicated-value="task.content">
               <textarea @keydown="handleKeyDownEvent" v-model="task.content" @focus="editingTask = task" placeholder="To do..." class="resize-none overflow-hidden bg-transparent focus:outline-none" :id="String(task.id) + '-textarea'"  rows="1"></textarea>
             </div>
           </div>
